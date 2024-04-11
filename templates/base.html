@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name='robots' content='noindex, nofollow'>
+    <title>{% block title %}ottosender{% endblock %}</title>
+    <link rel="alternate" type="application/rss+xml" title="ottosender &raquo; Лента" href="feed/index.htm">
+    <link rel="alternate" type="application/rss+xml" title="ottosender &raquo; Лента комментариев" href="comments/feed/index.htm">
+
+    {% block extra_head %} {% endblock %}
+</head>
+
+{% block body_tag %}
+<body>
+{% endblock %}
+{% include 'inc/header.html' %}
+
+{% block content %}
+{% endblock %}
+
+{% include 'inc/footer.html' %}
+{% block extra_js %}
+{% endblock %}
+</body>
+</html>
