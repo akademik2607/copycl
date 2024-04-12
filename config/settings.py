@@ -90,15 +90,12 @@ if PRODUCT:
 else:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.mysql',
+            'ENGINE': 'django.db.backends.postgresql',
             'NAME': os.getenv('DB_NAME', None),
             'USER': os.getenv('DB_USER', None),
             'PASSWORD': os.getenv('PASSWORD', None),
             'HOST': os.getenv('DB_HOST'),
             'PORT': os.getenv('DB_PORT'),
-            'OPTIONS': {
-                'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
-            }
         }
     }
 
