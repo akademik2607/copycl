@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'apps.gateaways',
     'apps.user',
     'apps.landing',
     'apps.shop',
@@ -76,11 +77,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
+MIGRATION_MODULES = { }
+
+MIGRATION_MODULES['garpix_cloudpayments'] = 'app.migrations.garpix_cloudpayments'
+
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-if PRODUCT:
+if not PRODUCT:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -93,7 +98,7 @@ else:
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': os.getenv('DB_NAME', None),
             'USER': os.getenv('DB_USER', None),
-            'PASSWORD': os.getenv('PASSWORD', None),
+            'PASSWORD': os.getenv('DB_PASSWORD', None),
             'HOST': os.getenv('DB_HOST'),
             'PORT': os.getenv('DB_PORT'),
         }
@@ -150,3 +155,7 @@ STATICFILES_DIRS = [
 AUTH_USER_MODEL = 'user.CustomUser'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#gateaway settings
+CLOUD_PAY_PUBLIC_KEY = os.getenv('CLOUD_PAY_PUBLIC_KEY', None)
+CLOUD_PAY_PRIVATE_API_KEY = os.getenv('CLOUD_PAY_PRIVATE_API_KEY', None)

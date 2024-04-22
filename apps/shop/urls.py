@@ -21,6 +21,7 @@ app_name = 'shop'
 urlpatterns = [
     path('product/<slug:slug>', views.ProductDetailView.as_view(), name='product'),
     path('ordering/', views.ordering, name='ordering'),
+    path('pay-confirm/', views.create_order_view, name='pay_confirm'),
     path('', views.shop, name='shop')
 ]
 

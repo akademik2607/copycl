@@ -6,6 +6,7 @@ from apps.archives.models import ArchiveBase, Key
 
 class KeysInline(admin.TabularInline):
     model = Key
+    readonly_fields = ['access_key']
     extra = 0
 
 
